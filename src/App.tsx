@@ -1,14 +1,16 @@
 import Router from "~/router";
 import { Header } from "./components/Header";
+import GlobalStyles from "./styles/GlobalStyles";
+import { ThemeProvider } from "styled-components";
+import theme from "./styles/theme";
 
 function App() {
   return (
-    <>
-      <Header>
-        <h1>Caju Front Teste</h1>
-      </Header>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Header title="Caju Front Teste"/>
       <Router />
-    </>
+    </ThemeProvider>
   );
 }
 
