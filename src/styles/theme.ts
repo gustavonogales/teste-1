@@ -10,6 +10,12 @@ export default {
     success: '#9be59b',
     warning: '#ff8858',
     focus: '#007c89',
+    approved: '#EEEEFD',
+    onApproved: '#4242DF',
+    review: '#FDF8E9',
+    onReview: '#EFC24D',
+    reproved: '#FBEDF6',
+    onReproved: '#CE2893',
   },
   gradients: {
     brand: 'linear-gradient(258deg, #FF7500 8%, #E80537 53%)'
