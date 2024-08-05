@@ -5,11 +5,16 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+
+  & > div {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
 `;
 
 export const Actions = styled.div`
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   gap: 16px;
 `;

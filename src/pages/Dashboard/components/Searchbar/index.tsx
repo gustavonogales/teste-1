@@ -4,7 +4,14 @@ import { IconButton, Button } from "~/components/Buttons";
 import { TextField } from "~/components/TextField";
 import routes from "~/router/routes";
 import * as S from "./styles";
-export const SearchBar = () => {
+import { Spinner } from "~/components";
+
+type SearchBarProps = {
+  onRefetch: () => void;
+  isRefetching: boolean;
+}
+
+export const SearchBar = ({ onRefetch, isRefetching }: SearchBarProps) => {
   const history = useHistory();
 
   const goToNewAdmissionPage = () => {
@@ -13,9 +20,12 @@ export const SearchBar = () => {
   
   return (
     <S.Container>
-      <TextField placeholder="Digite um CPF válido" />
+      <div>
+        <TextField placeholder="Digite um CPF válido" />
+        {isRefetching && <Spinner/>}
+      </div>
       <S.Actions>
-        <IconButton aria-label="refetch">
+        <IconButton aria-label="refetch" onClick={onRefetch}>
           <HiRefresh />
         </IconButton>
         <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>

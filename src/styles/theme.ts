@@ -18,7 +18,8 @@ export default {
     onReproved: '#CE2893',
   },
   gradients: {
-    brand: 'linear-gradient(258deg, #FF7500 8%, #E80537 53%)'
+    brand: 'linear-gradient(258deg, #FF7500 8%, #E80537 53%)',
+    skeleton: 'linear-gradient(90deg, #f0f0f0, #e0e0e0)',
   },
   shadows: {
     button: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'

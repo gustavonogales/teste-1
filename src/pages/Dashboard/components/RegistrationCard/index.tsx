@@ -6,31 +6,31 @@ import {
   HiOutlineCalendar,
   HiOutlineTrash,
 } from "react-icons/hi";
+import { Registration } from "~/types/Registration";
 
-type Props = {
-  data: any;
+type RegistrationCardProps = {
+  data: Registration;
 };
 
-const RegistrationCard = (props: Props) => {
+const RegistrationCard = ({ data }: RegistrationCardProps) => {
   return (
     <S.Card>
       <S.IconAndText>
         <HiOutlineUser />
-        <h3>{props.data.employeeName}</h3>
+        <h3>{data.employeeName}</h3>
       </S.IconAndText>
       <S.IconAndText>
         <HiOutlineMail />
-        <p>{props.data.email}</p>
+        <p>{data.email}</p>
       </S.IconAndText>
       <S.IconAndText>
         <HiOutlineCalendar />
-        <span>{props.data.admissionDate}</span>
+        <span>{data.admissionDate}</span>
       </S.IconAndText>
       <S.Actions>
         <ButtonSmall variant="error" >Reprovar</ButtonSmall>
         <ButtonSmall variant="success">Aprovar</ButtonSmall>
         <ButtonSmall variant="warning">Revisar novamente</ButtonSmall>
-
         <HiOutlineTrash />
       </S.Actions>
     </S.Card>
