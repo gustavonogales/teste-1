@@ -6,6 +6,7 @@ import theme from "./styles/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { RegistrationsProvider } from "./contexts/RegistrationsContext";
+import ErrorBoundary from "./pages/ErrorBoundary";
 
 const queryClient = new QueryClient();
 
@@ -13,13 +14,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Header title="Caju Front Teste"/>
-      <QueryClientProvider client={queryClient}>
-        <RegistrationsProvider>
-          <Router />
-        </RegistrationsProvider>
-        {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
-      </QueryClientProvider>
+      <ErrorBoundary>
+        <Header title="Caju Front Teste"/>
+        <QueryClientProvider client={queryClient}>
+          <RegistrationsProvider>
+            <Router />
+          </RegistrationsProvider>
+          {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
+        </QueryClientProvider>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }

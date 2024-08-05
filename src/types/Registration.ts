@@ -1,5 +1,5 @@
 export enum RegistrationStatus {
-  APPROVED = 'APROVED',
+  APPROVED = 'APPROVED',
   REVIEW = 'REVIEW',
   REPROVED = 'REPROVED'
 }

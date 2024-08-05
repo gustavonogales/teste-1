@@ -5,11 +5,10 @@ import { TextField } from "~/components/TextField";
 import routes from "~/router/routes";
 import * as S from "./styles";
 import { Spinner } from "~/components";
-import { useRegistrationsContext } from "~/contexts/RegistrationsContext";
-
+import { useRegistrations } from "~/hooks/useRegistrations";
 
 const SearchBar = () => {
-  const { refetch, search, isRefetching } = useRegistrationsContext()
+  const { refetch, search, isRefetching } = useRegistrations()
   const history = useHistory();
 
   const goToNewAdmissionPage = () => {
@@ -26,7 +25,7 @@ const SearchBar = () => {
         <IconButton aria-label="refetch" onClick={refetch}>
           <HiRefresh />
         </IconButton>
-        <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>
+        <Button onClick={goToNewAdmissionPage}>Nova Admissão</Button>
       </S.Actions>
     </S.Container>
   );

@@ -1,7 +1,7 @@
 
 import * as S from "./styles";
 import RegistrationCard from "../RegistrationCard";
-import { Registration } from "~/types/Registration";
+import { Registration, RegistrationStatus } from "~/types/Registration";
 import * as React from "react";
 
 const allColumns = [
@@ -19,9 +19,9 @@ const Collumns = ({registrations}: CollumnsProps) => {
     <S.Container>
       {allColumns.map((collum) => {
         return (
-          <S.Column status={collum.status} key={collum.title}>
+          <S.Column $status={collum.status} key={collum.title}>
             <>
-              <S.TitleColumn status={collum.status}>
+              <S.TitleColumn $status={collum.status}>
                 {collum.title}
               </S.TitleColumn>
               <S.CollumContent>

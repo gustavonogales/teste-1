@@ -28,7 +28,7 @@ const RegistrationCard = ({ data }: RegistrationCardProps) => {
         <span>{data.admissionDate}</span>
       </S.IconAndText>
       <S.Actions>
-        <ButtonSmall variant="error" >Reprovar</ButtonSmall>
+        <ButtonSmall variant="error">Reprovar</ButtonSmall>
         <ButtonSmall variant="success">Aprovar</ButtonSmall>
         <ButtonSmall variant="warning">Revisar novamente</ButtonSmall>
         <HiOutlineTrash />

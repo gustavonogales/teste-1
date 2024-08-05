@@ -1,9 +1,10 @@
-import { createContext, useContext, useState, useCallback } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { createContext, useState, useCallback } from 'react';
 import { useDebounce } from '~/hooks/useDebounce';
-import { useRegistrations } from '~/hooks/useRegistrations';
+import { RegistrationService } from '~/services/RegistrationService';
 import { Registration } from '~/types/Registration';
 
-interface RegistrationsContextProps {
+type RegistrationsContextProps = {
   search: (query: string) => void;
   data?: Registration[];
   isLoading: boolean;
@@ -11,7 +12,7 @@ interface RegistrationsContextProps {
   refetch: () => void;
 }
 
-const RegistrationsContext = createContext<RegistrationsContextProps | undefined>(undefined);
+export const RegistrationsContext = createContext<RegistrationsContextProps | undefined>(undefined);
 
 type RegistrationsProviderProps = {
   children: React.ReactNode;
@@ -20,7 +21,11 @@ type RegistrationsProviderProps = {
 export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) => {
   const [query, setQuery] = useState('');
   const debouncedQuery = useDebounce(query, 500); 
-  const { data, isLoading, refetch, isRefetching } = useRegistrations(debouncedQuery);
+
+  const { data, isLoading, refetch, isRefetching } = useQuery({ 
+    queryKey: ['registrations', debouncedQuery], 
+    queryFn: () => RegistrationService.getRegistrations(debouncedQuery)
+  })
 
   const handleSearch = useCallback((q: string) => {
     setQuery(q);
@@ -33,10 +38,3 @@ export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) 
   );
 };
 
-export const useRegistrationsContext = (): RegistrationsContextProps => {
-  const context = useContext(RegistrationsContext);
-  if (!context) {
-    throw new Error();
-  }
-  return context;
-};

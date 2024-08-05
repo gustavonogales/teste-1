@@ -1,9 +1,11 @@
 import { StyledButtonSmall } from "./ButtonSmall.styles";
 
-export type ButtonSmallProps = {
-  variant: 'error' | 'success' | 'warning'
+export type Variant = 'error' | 'success' | 'warning' 
+
+type ButtonSmallProps = {
+  variant: Variant
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const ButtonSmall = (props: ButtonSmallProps) => {
-  return <StyledButtonSmall  {...props}  />
+export const ButtonSmall = ({variant, ...props}: ButtonSmallProps) => {
+  return <StyledButtonSmall  {...props} $variant={variant}  />
 }

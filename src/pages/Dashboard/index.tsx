@@ -2,10 +2,10 @@ import Collumns from "./components/Columns";
 import SearchBar from "./components/Searchbar";
 import * as S from "./styles";
 import { Loading } from "./loading";
-import { useRegistrationsContext } from "~/contexts/RegistrationsContext";
+import { useRegistrations } from "~/hooks/useRegistrations";
 
 const DashboardPage = () => {
-  const { isLoading, data } = useRegistrationsContext()
+  const { isLoading, data } = useRegistrations()
 
   return (
     <S.Container>

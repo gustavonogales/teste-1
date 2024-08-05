@@ -1,9 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { RegistrationService } from "~/services/RegistrationService";
+import { useContext } from "react";
+import { RegistrationsContext } from "~/contexts/RegistrationsContext";
 
-export const useRegistrations = (query: string) => {
-  return useQuery({ 
-    queryKey: ['registrations', query], 
-    queryFn: () => RegistrationService.getRegistrations(query)
-  });
+export const useRegistrations = () => {
+  const context = useContext(RegistrationsContext);
+  if (!context) {
+    throw new Error();
+  }
+  return context;
 };
