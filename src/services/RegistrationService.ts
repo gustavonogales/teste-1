@@ -3,8 +3,14 @@ import { Registration } from "~/types/Registration";
 
 export abstract class RegistrationService {
 
-  public static async getRegistrations(): Promise<Registration[]> {
-    const response = await api.get<Registration[]>('/registrations')
+  public static async getRegistrations(query: string): Promise<Registration[]> {
+    const response = await api.get<Registration[]>('/registrations', {
+      params: { 
+        '_sort': 'admissionDate',
+        '_order': 'desc',
+        'cpf_like': query 
+      }
+    })
     return response.data
   }
 }

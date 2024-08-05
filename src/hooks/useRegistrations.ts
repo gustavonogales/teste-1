@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { RegistrationService } from "~/services/RegistrationService";
 
-export const useRegistrations = () => {
-  return useQuery({ queryKey: ['registrations'], queryFn: RegistrationService.getRegistrations});
+export const useRegistrations = (query: string) => {
+  return useQuery({ 
+    queryKey: ['registrations', query], 
+    queryFn: () => RegistrationService.getRegistrations(query)
+  });
 };

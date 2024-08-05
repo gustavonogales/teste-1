@@ -23,6 +23,7 @@ module.exports = {
     },
   },
   rules: {
+    "react/prop-types": "off",
     '@typescript-eslint/no-explicit-any': 'off',
     'react/react-in-jsx-scope': 'off',
     'import/no-named-as-default': 0,

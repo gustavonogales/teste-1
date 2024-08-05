@@ -1,15 +1,15 @@
 import Collumns from "./components/Columns";
+import SearchBar from "./components/Searchbar";
 import * as S from "./styles";
-import { SearchBar } from "./components/Searchbar";
 import { Loading } from "./loading";
-import { useRegistrations } from "~/hooks/useRegistrations";
+import { useRegistrationsContext } from "~/contexts/RegistrationsContext";
 
 const DashboardPage = () => {
-  const {data, isLoading, refetch, isRefetching } =  useRegistrations()
+  const { isLoading, data } = useRegistrationsContext()
 
   return (
     <S.Container>
-      <SearchBar isRefetching={isRefetching} onRefetch={() => refetch()} />
+      <SearchBar />
       { isLoading ? <Loading /> : <Collumns registrations={data} /> }
     </S.Container>
   );

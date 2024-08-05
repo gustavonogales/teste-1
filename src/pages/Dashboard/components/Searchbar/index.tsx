@@ -5,13 +5,11 @@ import { TextField } from "~/components/TextField";
 import routes from "~/router/routes";
 import * as S from "./styles";
 import { Spinner } from "~/components";
+import { useRegistrationsContext } from "~/contexts/RegistrationsContext";
 
-type SearchBarProps = {
-  onRefetch: () => void;
-  isRefetching: boolean;
-}
 
-export const SearchBar = ({ onRefetch, isRefetching }: SearchBarProps) => {
+const SearchBar = () => {
+  const { refetch, search, isRefetching } = useRegistrationsContext()
   const history = useHistory();
 
   const goToNewAdmissionPage = () => {
@@ -21,11 +19,11 @@ export const SearchBar = ({ onRefetch, isRefetching }: SearchBarProps) => {
   return (
     <S.Container>
       <div>
-        <TextField placeholder="Digite um CPF válido" />
+        <TextField placeholder="Digite um CPF válido" onChange={e => search(e.target.value)} />
         {isRefetching && <Spinner/>}
       </div>
       <S.Actions>
-        <IconButton aria-label="refetch" onClick={onRefetch}>
+        <IconButton aria-label="refetch" onClick={refetch}>
           <HiRefresh />
         </IconButton>
         <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>
@@ -33,3 +31,5 @@ export const SearchBar = ({ onRefetch, isRefetching }: SearchBarProps) => {
     </S.Container>
   );
 };
+
+export default SearchBar

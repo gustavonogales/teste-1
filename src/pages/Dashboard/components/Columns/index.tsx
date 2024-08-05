@@ -2,6 +2,7 @@
 import * as S from "./styles";
 import RegistrationCard from "../RegistrationCard";
 import { Registration } from "~/types/Registration";
+import * as React from "react";
 
 const allColumns = [
   { status: 'REVIEW', title: "Pronto para revisar" },
@@ -40,4 +41,4 @@ const Collumns = ({registrations}: CollumnsProps) => {
     </S.Container>
   );
 };
-export default Collumns;
+export default React.memo(Collumns);
