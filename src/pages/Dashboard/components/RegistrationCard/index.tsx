@@ -27,9 +27,9 @@ const RegistrationCard = (props: Props) => {
         <span>{props.data.admissionDate}</span>
       </S.IconAndText>
       <S.Actions>
-        <ButtonSmall bgcolor="rgb(255, 145, 154)" >Reprovar</ButtonSmall>
-        <ButtonSmall bgcolor="rgb(155, 229, 155)">Aprovar</ButtonSmall>
-        <ButtonSmall bgcolor="#ff8858">Revisar novamente</ButtonSmall>
+        <ButtonSmall variant="error" >Reprovar</ButtonSmall>
+        <ButtonSmall variant="success">Aprovar</ButtonSmall>
+        <ButtonSmall variant="warning">Revisar novamente</ButtonSmall>
 
         <HiOutlineTrash />
       </S.Actions>
