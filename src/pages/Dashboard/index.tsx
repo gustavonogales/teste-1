@@ -1,4 +1,4 @@
-import Collumns from "./components/Columns";
+import Columns from "./components/Columns";
 import SearchBar from "./components/Searchbar";
 import * as S from "./styles";
 import { Loading } from "./loading";
@@ -10,7 +10,7 @@ const DashboardPage = () => {
   return (
     <S.Container>
       <SearchBar />
-      { isLoading ? <Loading /> : <Collumns registrations={data} /> }
+      { isLoading ? <Loading /> : <Columns registrations={data} /> }
     </S.Container>
   );
 };
