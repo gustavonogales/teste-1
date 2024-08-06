@@ -16,7 +16,7 @@ const Content = ({children, ...props}: ContentProps) => {
   return (
     <PrimitivesPortal>
       <StyledOverlay />
-      <StyledContent {...props}>
+      <StyledContent {...props} aria-describedby={undefined}>
         <DialogClose asChild>
           <StyledCloseButton>
             <HiOutlineX/>

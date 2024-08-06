@@ -1,6 +1,7 @@
 import { 
   Overlay, 
-  Content
+  Content,
+  Title,
 } from '@radix-ui/react-dialog';
 import styled, { keyframes } from 'styled-components';
 
@@ -46,7 +47,7 @@ export const StyledCloseButton = styled('button')`
   cursor: pointer;
 `
 
-export const StyledTitle = styled.h4`
+export const StyledTitle = styled(Title)`
   margin-bottom: 20px;
 `
 

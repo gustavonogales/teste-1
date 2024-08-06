@@ -2,6 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { createContext, useState, useCallback } from 'react';
 import { queryClient } from '~/App';
 import { useDebounce } from '~/hooks/useDebounce';
+import { useToast } from '~/hooks/useToast';
 import { RegistrationService } from '~/services/RegistrationService';
 import { Registration, RegistrationStatus } from '~/types/Registration';
 
@@ -26,10 +27,11 @@ type RegistrationsProviderProps = {
 export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) => {
   const [query, setQuery] = useState('');
   const debouncedQuery = useDebounce(query, 500); 
+  const { showToast } = useToast()
 
   const { data, isLoading, refetch, isRefetching } = useQuery({ 
     queryKey: ['registrations', debouncedQuery], 
-    queryFn: () => RegistrationService.getRegistrations(debouncedQuery)
+    queryFn: () => RegistrationService.getRegistrations(debouncedQuery),
   })
 
   const { mutate: updateMutation } = useMutation({
@@ -38,6 +40,7 @@ export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) 
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['registrations'] })
+      showToast('Status atualizado com sucesso!')
     }
   })
 
@@ -45,12 +48,13 @@ export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) 
     mutationFn: (data: Registration) => RegistrationService.delete(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['registrations'] })
+      showToast('Status atualizado com sucesso!')
     }
   })
 
-  const handleApprove = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.APPROVED}), []);
-  const handleReprove = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.REPROVED}), []);
-  const handleReview = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.REVIEW}), []);
+  const handleApprove = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.APPROVED}), [updateMutation]);
+  const handleReprove = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.REPROVED}), [updateMutation]);
+  const handleReview = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.REVIEW}), [updateMutation]);
 
   const handleSearch = useCallback((q: string) => setQuery(q), []);
 

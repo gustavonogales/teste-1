@@ -8,6 +8,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { RegistrationsProvider } from "./contexts/RegistrationsContext";
 import ErrorBoundary from "./pages/ErrorBoundary";
 import { ModalProvider } from "./contexts/ModalContext";
+import { ToastProvider } from "./contexts/ToastContext";
 
 export const queryClient = new QueryClient();
 
@@ -18,11 +19,13 @@ function App() {
       <ErrorBoundary>
         <Header title="Caju Front Teste"/>
         <QueryClientProvider client={queryClient}>
-          <RegistrationsProvider>
-            <ModalProvider>
-              <Router />
-            </ModalProvider>
-          </RegistrationsProvider>
+          <ModalProvider>
+            <ToastProvider>
+              <RegistrationsProvider>
+                  <Router />
+              </RegistrationsProvider>
+            </ToastProvider>
+          </ModalProvider>
           {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
         </QueryClientProvider>
       </ErrorBoundary>
