@@ -8,7 +8,7 @@ export abstract class RegistrationService {
       params: { 
         '_sort': 'admissionDate',
         '_order': 'desc',
-        'cpf_like': query 
+        ...(query && {'cpf': query })
       }
     })
     return response.data

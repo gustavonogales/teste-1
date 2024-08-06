@@ -31,8 +31,13 @@ export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) 
     setQuery(q);
   }, []);
 
+  const handleRefetch = useCallback(() => {
+    setQuery('')
+    refetch()
+  }, [refetch])
+
   return (
-    <RegistrationsContext.Provider value={{ search: handleSearch, data, isLoading, isRefetching, refetch }}>
+    <RegistrationsContext.Provider value={{ search: handleSearch, data, isLoading, isRefetching, refetch: handleRefetch }}>
       {children}
     </RegistrationsContext.Provider>
   );

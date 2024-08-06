@@ -6,6 +6,8 @@ import routes from "~/router/routes";
 import * as S from "./styles";
 import { Spinner } from "~/components";
 import { useRegistrations } from "~/hooks/useRegistrations";
+import { PatternFormat } from "react-number-format";
+import { cpfValidator } from "~/utils/cpfValidator";
 
 const SearchBar = () => {
   const { refetch, search, isRefetching } = useRegistrations()
@@ -14,11 +16,24 @@ const SearchBar = () => {
   const goToNewAdmissionPage = () => {
     history.push(routes.newUser);
   };
+
+  const handleSearch = (value: string) => {
+    if(cpfValidator(value) || !value.length) {
+      search(value)
+    }
+  }
   
   return (
     <S.Container>
       <div>
-        <TextField placeholder="Digite um CPF válido" onChange={e => search(e.target.value)} />
+        <PatternFormat 
+          format='###.###.###-##'
+          label="Pesquisar por CPF"
+          mask="_"
+          valueIsNumericString
+          customInput={TextField}
+          onValueChange={(change) => handleSearch(change.value)}
+        />
         {isRefetching && <Spinner/>}
       </div>
       <S.Actions>
