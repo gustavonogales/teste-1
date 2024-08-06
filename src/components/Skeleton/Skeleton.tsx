@@ -6,5 +6,5 @@ export interface SkeletonProps {
 }
 
 export const Skeleton = ({ width, height }: SkeletonProps) => {
-  return <StyledSkeleton width={width} height={height} />;
+  return <StyledSkeleton width={width} height={height} data-testid="skeleton" />;
 };
