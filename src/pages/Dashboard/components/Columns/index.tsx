@@ -5,9 +5,9 @@ import { Registration, RegistrationStatus } from "~/types/Registration";
 import * as React from "react";
 
 const allColumns = [
-  { status: 'REVIEW', title: "Pronto para revisar" },
-  { status: 'APPROVED', title: "Aprovado" },
-  { status: 'REPROVED', title: "Reprovado" },
+  { status: RegistrationStatus.REVIEW, title: "Pronto para revisar" },
+  { status: RegistrationStatus.APPROVED, title: "Aprovado" },
+  { status: RegistrationStatus.REPROVED, title: "Reprovado" },
 ];
 
 type CollumnsProps = {
@@ -17,15 +17,15 @@ type CollumnsProps = {
 const Collumns = ({registrations}: CollumnsProps) => {
   return (
     <S.Container>
-      {allColumns.map((collum) => {
+      {allColumns.map((column) => {
         return (
-          <S.Column $status={collum.status} key={collum.title}>
+          <S.Column $status={column.status} key={column.title}>
             <>
-              <S.TitleColumn $status={collum.status}>
-                {collum.title}
+              <S.TitleColumn $status={column.status}>
+                {column.title}
               </S.TitleColumn>
               <S.CollumContent>
-                {registrations?.map((registration) => {
+                {registrations?.filter(registration => registration.status === column.status).map((registration) => {
                   return (
                     <RegistrationCard
                       data={registration}
