@@ -12,7 +12,7 @@ import { HiOutlineX } from 'react-icons/hi';
 const Content = ({children, ...props}: HTMLAttributes<HTMLDivElement>) => {
   return (
     <PrimitivesPortal>
-      <StyledOverlay />
+      <StyledOverlay data-testid='overlay' />
       <StyledContent {...props}>
         <DialogClose asChild>
           <StyledCloseButton>
