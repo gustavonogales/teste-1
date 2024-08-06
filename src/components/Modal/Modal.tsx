@@ -3,20 +3,17 @@ import {
   Trigger, 
   Portal as PrimitivesPortal,
   DialogClose,
+  Description,
 } from '@radix-ui/react-dialog';
 import { HTMLAttributes } from 'react';
 import { StyledCloseButton, StyledContent, StyledFooter, StyledOverlay, StyledTitle } from './Modal.styles';
 import { HiOutlineX } from 'react-icons/hi';
 
-type ContentProps = {
-
-} & HTMLAttributes<HTMLDivElement>
-
-const Content = ({children, ...props}: ContentProps) => {
+const Content = ({children, ...props}: HTMLAttributes<HTMLDivElement>) => {
   return (
     <PrimitivesPortal>
       <StyledOverlay />
-      <StyledContent {...props} aria-describedby={undefined}>
+      <StyledContent {...props}>
         <DialogClose asChild>
           <StyledCloseButton>
             <HiOutlineX/>
@@ -43,5 +40,6 @@ export {
   Trigger,
   Content,
   Title,
-  Footer
+  Description,
+  Footer,
 }

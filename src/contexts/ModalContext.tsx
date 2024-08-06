@@ -36,7 +36,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
       <Modal.Root open={isOpen} onOpenChange={isOpen => setIsOpen(isOpen)}>
         <Modal.Content>
           <Modal.Title>{modalData.title}</Modal.Title>
-          <p>{modalData.content}</p>
+          <Modal.Description>{modalData.content}</Modal.Description>
           <Modal.Footer>
             <ButtonSmall variant="error" onClick={closeModal}>Confirmar</ButtonSmall>
           </Modal.Footer>
