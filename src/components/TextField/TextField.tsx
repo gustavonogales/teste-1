@@ -6,12 +6,12 @@ export type TextFieldProps = {
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const TextField = (props: TextFieldProps) => {
+export const TextField = ({error, ...props}: TextFieldProps) => {
   return (
     <div>
       <label htmlFor={props.id}>{props.label}</label>
       <StyledInput {...props} />
-      <StyledErrorText>{props.error}</StyledErrorText>
+      <StyledErrorText>{error}</StyledErrorText>
     </div>
   );
 };
