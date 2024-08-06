@@ -12,3 +12,5 @@ export interface Registration {
   status: RegistrationStatus;
   cpf: string;
 }
+
+export interface RegistrationForm extends Omit<Registration, 'id' | 'status'> {}

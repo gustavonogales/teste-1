@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 import { StyledErrorText, StyledInput } from "./TextField.styles";
 
-type TextFieldProps = {
+export type TextFieldProps = {
   label?: string;
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>;

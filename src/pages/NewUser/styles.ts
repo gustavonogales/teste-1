@@ -1,6 +1,6 @@
+import { Form as FormikForm  } from "formik";
 import styled from "styled-components";
 import {Button, IconButton} from "~/components/Buttons";
-
 
 export const Container = styled.div`
   display: flex;
@@ -28,3 +28,9 @@ export const Card = styled.div`
     align-self: flex-end;
   }
 `;
+
+export const Form = styled(FormikForm)`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`

@@ -4,7 +4,7 @@ import { queryClient } from '~/App';
 import { useDebounce } from '~/hooks/useDebounce';
 import { useToast } from '~/hooks/useToast';
 import { RegistrationService } from '~/services/RegistrationService';
-import { Registration, RegistrationStatus } from '~/types/Registration';
+import { Registration, RegistrationForm, RegistrationStatus } from '~/types/Registration';
 
 type RegistrationsContextProps = {
   search: (query: string) => void;
@@ -16,6 +16,7 @@ type RegistrationsContextProps = {
   reprove: (data: Registration) => void;
   review: (data: Registration) => void;
   delete: (data: Registration) => void;
+  create: (data: RegistrationForm) => Promise<void>;
 }
 
 export const RegistrationsContext = createContext<RegistrationsContextProps | undefined>(undefined);
@@ -52,6 +53,14 @@ export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) 
     }
   })
 
+  const { mutateAsync: handleCreate } = useMutation({
+    mutationFn: (data: RegistrationForm) => RegistrationService.create(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['registrations'] })
+      showToast('Novo registro criado com sucesso!')
+    }
+  })
+
   const handleApprove = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.APPROVED}), [updateMutation]);
   const handleReprove = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.REPROVED}), [updateMutation]);
   const handleReview = useCallback((data: Registration) => updateMutation({data, status: RegistrationStatus.REVIEW}), [updateMutation]);
@@ -73,7 +82,8 @@ export const RegistrationsProvider = ({ children }: RegistrationsProviderProps) 
       approve: handleApprove,
       reprove: handleReprove,
       review: handleReview,
-      delete: deleteMutation
+      delete: deleteMutation,
+      create: handleCreate,
     }}>
       {children}
     </RegistrationsContext.Provider>
