@@ -20,9 +20,15 @@ describe('Skeleton component', () => {
     expect(skeletonElement).toBeInTheDocument();
     expect(skeletonElement).toHaveStyleRule('width', '100%');
     expect(skeletonElement).toHaveStyleRule('height', '20px');
-    expect(skeletonElement).toHaveStyleRule('background', theme.gradients.skeleton);
+    expect(skeletonElement).toHaveStyleRule(
+      'background',
+      theme.gradients.skeleton,
+    );
     expect(skeletonElement).toHaveStyleRule('border-radius', '4px');
-    expect(skeletonElement).toHaveStyleRule('animation', expect.stringContaining('0.8s infinite linear'));
+    expect(skeletonElement).toHaveStyleRule(
+      'animation',
+      expect.stringContaining('0.8s infinite linear'),
+    );
   });
 
   it('renders correctly with custom width and height', () => {

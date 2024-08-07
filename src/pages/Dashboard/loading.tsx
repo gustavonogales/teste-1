@@ -1,5 +1,5 @@
-import { Skeleton } from "~/components";
-import * as S from "./styles";
+import { Skeleton } from '~/components';
+import * as S from './styles';
 
 export const Loading = () => {
   return (
@@ -9,4 +9,4 @@ export const Loading = () => {
       <Skeleton height="80vh" />
     </S.LoadingGrid>
   );
-}
+};

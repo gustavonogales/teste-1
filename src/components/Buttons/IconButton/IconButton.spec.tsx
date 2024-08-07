@@ -21,7 +21,10 @@ describe('IconButton component', () => {
     };
     render(<IconButton>Test Button</IconButton>, { theme });
     const buttonElement = screen.getByRole('button');
-    expect(buttonElement).toHaveStyleRule('border', `2px solid ${theme.colors.primary}`);
+    expect(buttonElement).toHaveStyleRule(
+      'border',
+      `2px solid ${theme.colors.primary}`,
+    );
     expect(buttonElement).toHaveStyleRule('color', theme.colors.primary, {
       modifier: 'svg',
     });

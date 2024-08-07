@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 24px;
@@ -12,4 +12,4 @@ export const LoadingGrid = styled.div`
   grid-gap: 24px;
   justify-content: center;
   margin-top: 24px;
-`
+`;

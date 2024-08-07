@@ -1,11 +1,11 @@
-import * as Primitives from '@radix-ui/react-toast'
-import { StyledRoot, StyledTitle, StyledViewport } from './Toast.styles'
+import * as Primitives from '@radix-ui/react-toast';
+import { StyledRoot, StyledTitle, StyledViewport } from './Toast.styles';
 
 type ToastProps = Primitives.ToastProps & {
   message: string;
-}
+};
 
-export const Toast = ({ message,...props }: ToastProps) => {
+export const Toast = ({ message, ...props }: ToastProps) => {
   return (
     <>
       <StyledRoot {...props}>
@@ -13,5 +13,5 @@ export const Toast = ({ message,...props }: ToastProps) => {
       </StyledRoot>
       <StyledViewport />
     </>
-  )
-}
+  );
+};

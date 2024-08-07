@@ -1,5 +1,5 @@
-import * as Primitives from '@radix-ui/react-toast'
-import {keyframes, styled} from 'styled-components'
+import * as Primitives from '@radix-ui/react-toast';
+import { keyframes, styled } from 'styled-components';
 
 const viewportPadding = '25px';
 
@@ -17,7 +17,7 @@ export const StyledViewport = styled(Primitives.Viewport)`
   list-style: none;
   z-index: 2147483647;
   outline: none;
-`
+`;
 
 const hide = keyframes({
   '0%': { opacity: 1 },
@@ -35,9 +35,11 @@ const swipeOut = keyframes({
 });
 
 export const StyledRoot = styled(Primitives.Root)`
-  background-color: ${props => props.theme.colors.bg};
+  background-color: ${(props) => props.theme.colors.bg};
   border-radius: 6px;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   padding: 15px;
   display: grid;
   grid-template-areas: 'title action' 'description action';
@@ -61,13 +63,12 @@ export const StyledRoot = styled(Primitives.Root)`
   &[data-state='end'] {
     animation: ${swipeOut} 100ms ease-out;
   }
-`
+`;
 
 export const StyledTitle = styled(Primitives.Title)`
   grid-area: title;
   margin-bottom: 5px;
   font-weight: 500;
-  color: ${props => props.theme.colors.fg};
+  color: ${(props) => props.theme.colors.fg};
   font-size: 15px;
-`
-
+`;

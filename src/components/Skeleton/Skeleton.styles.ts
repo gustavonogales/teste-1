@@ -17,9 +17,9 @@ export const SkeletonWrapper = styled.div`
   display: inline-block;
   width: 100%;
   height: 100%;
-  
-  background: ${props => props.theme.gradients.skeleton};
-	background-size: 400% 400%;
+
+  background: ${(props) => props.theme.gradients.skeleton};
+  background-size: 400% 400%;
   border-radius: 4px;
   animation: ${shimmerAnimation} 0.8s infinite linear;
 `;

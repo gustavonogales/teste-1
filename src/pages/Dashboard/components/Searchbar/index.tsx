@@ -1,15 +1,14 @@
-import { HiRefresh } from "react-icons/hi";
-import { useHistory } from "react-router-dom";
-import { IconButton, Button, Spinner } from "~/components";
-import { TextField } from "~/components";
-import routes from "~/router/routes";
-import * as S from "./styles";
-import { useRegistrations } from "~/hooks/useRegistrations";
-import { PatternFormat } from "react-number-format";
-import { cpfValidator } from "~/utils/cpfValidator";
+import { HiRefresh } from 'react-icons/hi';
+import { useHistory } from 'react-router-dom';
+import { IconButton, Button, Spinner, TextField } from '~/components';
+import routes from '~/router/routes';
+import * as S from './styles';
+import { useRegistrations } from '~/hooks/useRegistrations';
+import { PatternFormat } from 'react-number-format';
+import { cpfValidator } from '~/utils/cpfValidator';
 
 const SearchBar = () => {
-  const { refetch, search, isRefetching } = useRegistrations()
+  const { refetch, search, isRefetching } = useRegistrations();
   const history = useHistory();
 
   const goToNewAdmissionPage = () => {
@@ -17,23 +16,23 @@ const SearchBar = () => {
   };
 
   const handleSearch = (value: string) => {
-    if(cpfValidator(value) || !value.length) {
-      search(value)
+    if (cpfValidator(value) || !value.length) {
+      search(value);
     }
-  }
-  
+  };
+
   return (
     <S.Container>
       <div>
-        <PatternFormat 
-          format='###.###.###-##'
+        <PatternFormat
+          format="###.###.###-##"
           label="Pesquisar por CPF"
           mask="_"
           valueIsNumericString
           customInput={TextField}
           onValueChange={(change) => handleSearch(change.value)}
         />
-        {isRefetching && <Spinner/>}
+        {isRefetching && <Spinner />}
       </div>
       <S.Actions>
         <IconButton aria-label="refetch" onClick={refetch}>
@@ -45,4 +44,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar
+export default SearchBar;

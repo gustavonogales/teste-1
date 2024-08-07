@@ -1,2 +1,6 @@
 vite.config.ts
 .eslintrc.*
+node_modules
+build
+dist
+.cache

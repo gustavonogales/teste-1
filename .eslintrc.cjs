@@ -5,9 +5,10 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:@typescript-eslint/recommended',
-    'eslint-config-prettier',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended', // Add this line
   ],
+  plugins: ['prettier'], // Add this line
   settings: {
     react: {
       version: 'detect',
@@ -23,14 +24,15 @@ module.exports = {
     },
   },
   rules: {
-    "react/prop-types": "off",
+    'prettier/prettier': 'error',
+    'react/prop-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'react/react-in-jsx-scope': 'off',
     'import/no-named-as-default': 0,
-    'import/no-unresolved': ['error', { 'ignore': ['^@/'] }],
+    'import/no-unresolved': ['error', { ignore: ['^@/'] }],
     'react/display-name': 'off',
     '@typescript-eslint/ban-types': 'off',
     'import/named': 'off',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };

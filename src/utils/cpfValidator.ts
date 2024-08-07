@@ -21,4 +21,3 @@ export function cpfValidator(cpf: string): boolean {
   // Verifica se os dígitos verificadores são iguais aos do CPF
   return cpf === base + digito1 + digito2;
 }
-

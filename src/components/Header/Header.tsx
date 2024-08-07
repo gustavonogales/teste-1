@@ -1,8 +1,8 @@
-import { StyledHeader } from "./Header.styles";
+import { StyledHeader } from './Header.styles';
 
 type HeaderProps = {
-  title: string
-}
+  title: string;
+};
 
 export const Header = ({ title }: HeaderProps) => {
   return (
@@ -10,4 +10,4 @@ export const Header = ({ title }: HeaderProps) => {
       <h1>{title}</h1>
     </StyledHeader>
   );
-}
+};

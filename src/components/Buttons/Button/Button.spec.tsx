@@ -1,4 +1,4 @@
-import { render } from '~/testUtils'
+import { render } from '~/testUtils';
 import { Button } from './Button';
 import { describe, it, expect } from 'vitest';
 import { screen } from '@testing-library/react';
@@ -19,7 +19,10 @@ describe('Button component', () => {
     const buttonElement = screen.getByRole('button');
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveTextContent('Test');
-    expect(buttonElement).toHaveStyleRule('background-color', theme.colors.primary);
+    expect(buttonElement).toHaveStyleRule(
+      'background-color',
+      theme.colors.primary,
+    );
     expect(buttonElement).toHaveStyleRule('color', theme.colors.onPrimary);
     expect(buttonElement).toHaveStyleRule('box-shadow', theme.shadows.button);
     expect(buttonElement).toHaveStyleRule('border-radius', '36px');

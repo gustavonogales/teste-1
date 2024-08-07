@@ -6,9 +6,13 @@ interface ToastContextProps {
   showToast: (message: string) => void;
 }
 
-export const ToastContext = createContext<ToastContextProps | undefined>(undefined);
+export const ToastContext = createContext<ToastContextProps | undefined>(
+  undefined,
+);
 
-export const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const ToastProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
   const timerRef = useRef<number | null>(null);
@@ -27,9 +31,9 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   return (
     <ToastContext.Provider value={{ showToast }}>
-      <Primitives.ToastProvider swipeDirection='right'>
+      <Primitives.ToastProvider swipeDirection="right">
         {children}
-        <Toast message={message} open={open} onOpenChange={setOpen}/>
+        <Toast message={message} open={open} onOpenChange={setOpen} />
       </Primitives.ToastProvider>
     </ToastContext.Provider>
   );

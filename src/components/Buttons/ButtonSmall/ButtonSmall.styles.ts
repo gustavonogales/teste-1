@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { Variant } from "./ButtonSmall";
+import styled from 'styled-components';
+import { Variant } from './ButtonSmall';
 
 export const StyledButtonSmall = styled.button<{
-  $variant: Variant
+  $variant: Variant;
 }>`
   font-size: 12px;
   outline: none;
@@ -13,4 +13,3 @@ export const StyledButtonSmall = styled.button<{
   color: ${(props) => props.theme.colors.fg};
   cursor: pointer;
 `;
-

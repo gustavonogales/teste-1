@@ -1,7 +1,7 @@
-import { describe, expect, it } from "vitest";
-import { TextField } from "./TextField";
-import { render } from "~/testUtils";
-import { screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest';
+import { TextField } from './TextField';
+import { render } from '~/testUtils';
+import { screen } from '@testing-library/react';
 
 const theme = {
   colors: {
@@ -34,16 +34,18 @@ describe('TextField component', () => {
     const errorText = screen.getByText(/this field is required/i);
     expect(errorText).toBeInTheDocument();
     expect(errorText).toHaveStyleRule('font-size', '12px');
-    expect(errorText).toHaveStyleRule('color' , 'red');
+    expect(errorText).toHaveStyleRule('color', 'red');
   });
 
   it('applies focus styles correctly', () => {
-     render(<TextField id="name" data-testid='textField'/>, { theme });
+    render(<TextField id="name" data-testid="textField" />, { theme });
 
     const input = screen.getByRole('textbox');
     input.focus();
 
     expect(input).toHaveStyle(`border: 1px solid ${theme.colors.focus}`);
-    expect(input).toHaveStyle(`box-shadow: inset 0 0 0 1px ${theme.colors.focus}`);
+    expect(input).toHaveStyle(
+      `box-shadow: inset 0 0 0 1px ${theme.colors.focus}`,
+    );
   });
 });

@@ -1,7 +1,7 @@
 export enum RegistrationStatus {
   APPROVED = 'APPROVED',
   REVIEW = 'REVIEW',
-  REPROVED = 'REPROVED'
+  REPROVED = 'REPROVED',
 }
 
 export interface Registration {

@@ -7,24 +7,36 @@ import GlobalStyles from './styles/GlobalStyles';
 import ErrorBoundary from './pages/ErrorBoundary';
 import { ToastProvider } from './contexts/ToastContext';
 
-const AllTheProviders = ({ children, customTheme = theme }: { children: React.ReactNode, customTheme: Object }) => {
+const AllTheProviders = ({
+  children,
+  customTheme = theme,
+}: {
+  children: React.ReactNode;
+  customTheme: Object;
+}) => {
   return (
     <ThemeProvider theme={customTheme}>
       <GlobalStyles />
       <ErrorBoundary>
         <ModalProvider>
-          <ToastProvider>
-            {children}
-          </ToastProvider>
+          <ToastProvider>{children}</ToastProvider>
         </ModalProvider>
       </ErrorBoundary>
     </ThemeProvider>
   );
-}
+};
 
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'> & { theme?: any }) => {
+const customRender = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'> & { theme?: any },
+) => {
   const { theme: customTheme, ...restOptions } = options || {};
-  return render(ui, { wrapper: (props) => <AllTheProviders {...props} customTheme={customTheme} />, ...restOptions });
+  return render(ui, {
+    wrapper: (props) => (
+      <AllTheProviders {...props} customTheme={customTheme} />
+    ),
+    ...restOptions,
+  });
 };
 
 export { customRender as render };

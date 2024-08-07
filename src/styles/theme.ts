@@ -22,14 +22,14 @@ export default {
     skeleton: 'linear-gradient(90deg, #f0f0f0, #e0e0e0)',
   },
   shadows: {
-    button: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
+    button: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
   },
   fonts: {
     family: 'Inter, sans-serif',
     weights: {
       light: 100,
       regular: 400,
-      bold: 700
-    }
-  }
-}
+      bold: 700,
+    },
+  },
+};

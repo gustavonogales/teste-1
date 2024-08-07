@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const IconButton = styled.button`
   cursor: pointer;
-  border: 2px solid ${props => props.theme.colors.primary};
+  border: 2px solid ${(props) => props.theme.colors.primary};
   width: fit-content;
   padding: 4px;
   border-radius: 24px;
@@ -11,7 +11,6 @@ export const IconButton = styled.button`
   justify-content: center;
   background-color: transparent;
   svg {
-    color: ${props => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
-

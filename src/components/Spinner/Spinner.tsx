@@ -1,5 +1,5 @@
-import { HiOutlineRefresh } from "react-icons/hi";
-import styled, { keyframes } from "styled-components";
+import { HiOutlineRefresh } from 'react-icons/hi';
+import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
   0% {
@@ -12,4 +12,4 @@ const spin = keyframes`
 
 export const Spinner = styled(HiOutlineRefresh)`
   animation: ${spin} 1s linear infinite;
-`
+`;

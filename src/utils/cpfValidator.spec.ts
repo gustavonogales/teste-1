@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { cpfValidator } from "./cpfValidator";
+import { describe, expect, it } from 'vitest';
+import { cpfValidator } from './cpfValidator';
 
 describe('cpfValidator', () => {
   it('should return false for invalid CPF', () => {
@@ -11,4 +11,4 @@ describe('cpfValidator', () => {
     expect(cpfValidator('44757851898')).toBe(true);
     expect(cpfValidator('65067595000')).toBe(true);
   });
-})
+});
