@@ -38,7 +38,9 @@ const SearchBar = () => {
         <IconButton aria-label="refetch" onClick={refetch}>
           <HiRefresh />
         </IconButton>
-        <Button onClick={goToNewAdmissionPage}>Nova Admissão</Button>
+        <Button data-testci="admission-button" onClick={goToNewAdmissionPage}>
+          Nova Admissão
+        </Button>
       </S.Actions>
     </S.Container>
   );

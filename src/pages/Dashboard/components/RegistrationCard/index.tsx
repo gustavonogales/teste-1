@@ -60,7 +60,7 @@ const RegistrationCard = ({ data }: RegistrationCardProps) => {
   };
 
   return (
-    <S.Card>
+    <S.Card data-testci="registration-card">
       <S.IconAndText>
         <HiOutlineUser />
         <h3>{data.employeeName}</h3>
@@ -89,7 +89,10 @@ const RegistrationCard = ({ data }: RegistrationCardProps) => {
             Revisar novamente
           </ButtonSmall>
         )}
-        <HiOutlineTrash onClick={() => handleDelete(data)} />
+        <HiOutlineTrash
+          data-testci="delete-button"
+          onClick={() => handleDelete(data)}
+        />
       </S.Actions>
     </S.Card>
   );

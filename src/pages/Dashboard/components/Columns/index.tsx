@@ -22,7 +22,7 @@ const Columns = ({ registrations }: CollumnsProps) => {
               <S.TitleColumn $status={column.status}>
                 {column.title}
               </S.TitleColumn>
-              <S.CollumContent>
+              <S.CollumContent data-testci={`column-${column.status}`}>
                 {registrations
                   ?.filter(
                     (registration) => registration.status === column.status,
