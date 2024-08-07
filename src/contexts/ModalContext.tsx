@@ -33,7 +33,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
   return (
     <ModalContext.Provider value={{ showModal }}>
       {children}
-      <Modal.Root open={isOpen} onOpenChange={isOpen => setIsOpen(isOpen)}>
+      <Modal.Root open={isOpen} onOpenChange={setIsOpen}>
         <Modal.Content>
           <Modal.Title>{modalData.title}</Modal.Title>
           <Modal.Description>{modalData.content}</Modal.Description>

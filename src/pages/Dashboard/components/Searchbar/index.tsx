@@ -1,10 +1,9 @@
 import { HiRefresh } from "react-icons/hi";
 import { useHistory } from "react-router-dom";
-import { IconButton, Button } from "~/components/Buttons";
-import { TextField } from "~/components/TextField";
+import { IconButton, Button, Spinner } from "~/components";
+import { TextField } from "~/components";
 import routes from "~/router/routes";
 import * as S from "./styles";
-import { Spinner } from "~/components";
 import { useRegistrations } from "~/hooks/useRegistrations";
 import { PatternFormat } from "react-number-format";
 import { cpfValidator } from "~/utils/cpfValidator";

@@ -9,7 +9,7 @@ export type TextFieldProps = {
 export const TextField = ({error, ...props}: TextFieldProps) => {
   return (
     <div>
-      <label htmlFor={props.id}>{props.label}</label>
+      <label htmlFor={props.id ?? props.name}>{props.label}</label>
       <StyledInput {...props} />
       <StyledErrorText>{error}</StyledErrorText>
     </div>

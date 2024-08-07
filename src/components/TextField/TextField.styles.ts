@@ -13,7 +13,7 @@ export const StyledInput= styled.input`
   line-height: 18px;
   font-weight: normal;
   border-radius:8px;
-  :focus {
+  &:focus {
     outline: none;
     border: 1px solid ${props => props.theme.colors.focus};
     box-shadow: inset 0 0 0 1px ${props => props.theme.colors.focus};

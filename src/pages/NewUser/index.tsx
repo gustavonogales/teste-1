@@ -1,7 +1,6 @@
-import { TextField } from "~/components/TextField";
+import { TextField , IconButton, Button } from "~/components";
 import * as S from "./styles";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { IconButton, Button } from "~/components/Buttons";
 import { useHistory } from "react-router-dom";
 import routes from "~/router/routes";
 import { Formik, Field } from 'formik';
