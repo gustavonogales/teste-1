@@ -2,9 +2,9 @@ import { createContext, useState, useCallback, ReactNode, useRef } from 'react';
 import * as Primitives from '@radix-ui/react-toast';
 import { Toast } from '~/components';
 
-interface ToastContextProps {
+type ToastContextProps = {
   showToast: (message: string) => void;
-}
+};
 
 export const ToastContext = createContext<ToastContextProps | undefined>(
   undefined,

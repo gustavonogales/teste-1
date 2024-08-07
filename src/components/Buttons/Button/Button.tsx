@@ -14,4 +14,10 @@ export const Button = styled.button`
   box-shadow: ${(props) => props.theme.shadows.button};
   font-size: 16px;
   font-weight: 600;
+
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.disabled};
+    color: ${(props) => props.theme.colors.onDisabled};
+    cursor: not-allowed;
+  }
 `;

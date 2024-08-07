@@ -10,7 +10,18 @@ export const IconButton = styled.button`
   align-items: center;
   justify-content: center;
   background-color: transparent;
+
   svg {
     color: ${(props) => props.theme.colors.primary};
+  }
+
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.disabled};
+    cursor: not-allowed;
+    border-color: ${(props) => props.theme.colors.onDisabled};
+
+    svg {
+      color: ${(props) => props.theme.colors.onDisabled};
+    }
   }
 `;

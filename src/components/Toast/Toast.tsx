@@ -1,7 +1,7 @@
 import * as Primitives from '@radix-ui/react-toast';
 import { StyledRoot, StyledTitle, StyledViewport } from './Toast.styles';
 
-type ToastProps = Primitives.ToastProps & {
+export type ToastProps = Primitives.ToastProps & {
   message: string;
 };
 

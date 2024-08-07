@@ -16,6 +16,8 @@ export default {
     onReview: '#EFC24D',
     reproved: '#FBEDF6',
     onReproved: '#CE2893',
+    disabled: '#E0E0E0',
+    onDisabled: '#A0A0A0',
   },
   gradients: {
     brand: 'linear-gradient(258deg, #FF7500 8%, #E80537 53%)',

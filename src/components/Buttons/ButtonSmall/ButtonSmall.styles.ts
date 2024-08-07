@@ -12,4 +12,10 @@ export const StyledButtonSmall = styled.button<{
   background-color: ${(props) => props.theme.colors[props.$variant]};
   color: ${(props) => props.theme.colors.fg};
   cursor: pointer;
+
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.disabled};
+    color: ${(props) => props.theme.colors.onDisabled};
+    cursor: not-allowed;
+  }
 `;
