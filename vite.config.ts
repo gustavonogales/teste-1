@@ -3,8 +3,19 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import eslintPlugin from "@nabla/vite-plugin-eslint";
 import { configDefaults } from 'vitest/config';
+import { dependencies } from './package.json';
 
-// https://vitejs.dev/config/
+const vendor = ['react', 'react-router-dom', 'react-dom'];
+
+function defineChunks(deps: Record<string, string>) {
+  const chunks: any = {};
+  Object.keys(deps).forEach((key) => {
+    if ([...vendor].includes(key)) return;
+    chunks[key] = [key];
+  });
+  return chunks;
+}
+
 export default defineConfig({
   plugins: [react(), eslintPlugin()],
   server: {
@@ -21,4 +32,15 @@ export default defineConfig({
       "~": path.resolve(__dirname, "src"),
     },
   },
+  build: {
+    minify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor,
+          ...defineChunks(dependencies),
+        },
+      },
+    },
+  }
 });
