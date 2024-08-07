@@ -6,9 +6,10 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:prettier/recommended', // Add this line
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
   ],
-  plugins: ['prettier'], // Add this line
+  plugins: ['prettier'],
   settings: {
     react: {
       version: 'detect',

@@ -1,9 +1,9 @@
 import { StyledSkeleton } from './Skeleton.styles';
 
-export interface SkeletonProps {
+export type SkeletonProps = {
   width?: string;
   height?: string;
-}
+};
 
 export const Skeleton = ({ width, height }: SkeletonProps) => {
   return (
